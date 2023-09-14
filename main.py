@@ -20,64 +20,108 @@
 #     x.move()
 
 class Students:
-    def __init__(self,student,baho):
-        self.student = student
-        self.baho = baho
-
-
+    def __init__(self,student_number,uzlashtirishi,heigh_uzlashtirishi):
+        self.student_number = student_number
+        self.uzlashtirishi = uzlashtirishi
+        self.heigh_uzlashtirishi = heigh_uzlashtirishi
 class Sinf:
     def __init__(self) :
         self.list_name = []
 
-    def add_name(self,name):
-        self.list_name.append(name)
+    def add_name(self,student_number):
+        self.list_name.append(student_number)
 
 
-    def find_name(self,student):
+    def find_name(self,student_number):
         for name in self.list_name :
-            if name.student == student :
+            if name.student_number == student_number :
                 return name
         return None   
 
-    def darsga_kelmadi(self,student):
-        name = self.find_name(student)
+    def darsga_kelmadi(self,student_number):
+        name = self.find_name(student_number)
         if name is not None:
-            name.baho = 'darsga kelmagan'
-            print(f"{name.student} bugun darsga kelmagan")
+            name.uzlashtirishi = "darsga kelmagan"
+            print(f"{name.student_number} bugun darsga kelmagan")
         else:
             print("Xato ism")    
  
-    def  darsga_keldi(self,student):
-        name = self.find_name(student)
+    def  darsga_keldi(self,student_number):
+        name = self.find_name(student_number)
         if name is not None:
-            name.baho = 'darsda bor'
-            print(f"{name.student} bugun darsga kelgan")
+            name.uzlashtirishi = "darsda bor"
+            print(f"{name.student_number} bugun darsga kelgan")
         else:
             print("Xatolik")    
 
 
-    def  yaxshi_baho(self,student):
-        name = self.find_name(student)
+    def  yaxshi_baho(self,student_number):
+        name = self.find_name(student_number)
         if name is not None:
-            name.baho = 'yaxshi uzlashtiradi'
-            print(f"{name.student} darsni yaxshi uzlashtirdi va 5baho oldi")
+            name.heigh_uzlashtirishi = "yaxshi uzlashtirdi"
+            print(f"{name.student_number} darsni yaxshi uzlashtirdi va a'lo baho oldi")
         else:
             print("yaxshi_baho da xato")    
 
-    def  yomon_baho(self,student):
-        name = self.find_name(student)
+    def  yomon_baho(self,student_number):
+        name = self.find_name(student_number)
         if name is not None:
-            name.baho = 'yaxshi uzlashtirmadi'
-            print(f"{name.student} darsga yaxshi tayyorlanmagan va pas baho oldi")
+            name.heigh_uzlashtirishi = "yaxshi uzlashtirmadi"
+            print(f"{name.student_number} darsga yaxshi tayyorlanmagan va past baho oldi")
         else:
             print("yomon_baho da xato")      
 
     def display_name(self):
         print("Hamma o'quvhcilar: ") 
         for name in self.list_name:
-            print(f"{name.student}:{name.baho}")             
+            print(f"{name.student_number} {name.uzlashtirishi} {name.heigh_uzlashtirishi}")
+
+sinf = Sinf()
+student=Students("Tolipova Shahina","darsda bor","yaxshi uzlashtirdi")
+sinf.add_name(student)
+student=Students("Abdullayeva Sabina","darsda bor","yaxshi uzlashtirdi")
+sinf.add_name(student)
+student=Students("Bozorov SHohruh","darsga kelmagan","yaxshi uzlashtirmadi")
+sinf.add_name(student)
+student=Students("Djalilova Jasmina","darsda bor","yaxshi uzlashtirmadi")
+sinf.add_name(student)
+student=Students("Ergashev Davron","darsda bor","yaxshi uzlashtirdi")
+sinf.add_name(student)
+student=Students("Ochilova Dilshoda","darsda bor","yaxshi uzlashtirdi")
+sinf.add_name(student)
+student=Students("Shamsiyev Otabek","darsga kelmagan","yaxshi uzlashtirmadi")
+sinf.add_name(student)
+student=Students("Raximov Said","darsda bor","yaxshi uzlashtirmadi")
+sinf.add_name(student)
+student=Students("Burxonova Amina","darsda bor","yaxshi uzlashtirmadi")
+sinf.add_name(student)
+student=Students("Tilavova Shahrizoda","darsda bor","yaxshi uzlashtirmadi")
+sinf.add_name(student)
+student=Students("Jurayev SHohruh","darsga kelmagan","yaxshi uzlashtirmadi")
+sinf.add_name(student)
+sinf.display_name()
 
 
-student = Students()
-student.add_name(Sinf("Tolipova Shahina","darsda bor"))
+while True:
+    choice = input("Onlayn sinf ruyxati bilan tanishishingiz mumkin.Agar siz tanlasangiz (1)darsga_keldi, (2)darsga_kelmadi,(3)yaxshi baho olgan  bahosi,(4)yomon baho olgan (5)Umumiy ruyxat ,(6)dasturdan chiqasiz.")
+    if choice == '6':
+        print("Xayr , salomat bo'ling")
+        break
+   
+    if choice not in ['1','2','3','4','5']:
+        print("Xato raqam tanladiz")
+        continue
+    number = input("O'quvchining ism/familiyasini kiriting: ")
+
+    if choice == '1':
+        sinf.darsga_keldi(student_number)
+    elif choice == '2' :
+        sinf.darsga_kelmadi(student_number)
+    elif choice == '3':
+        sinf.yaxshi_baho(student_number)
+    elif choice == '4':
+        sinf.yomon_baho(student_number)
+    elif choice == '5':   
+        sinf.display_name()
+
 
