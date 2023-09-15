@@ -111,7 +111,7 @@ while True:
     if choice not in ['1','2','3','4','5']:
         print("Xato raqam tanladiz")
         continue
-    number = input("O'quvchining ism/familiyasini kiriting: ")
+    student_number = input("O'quvchining ism/familiyasini kiriting: ")
 
     if choice == '1':
         sinf.darsga_keldi(student_number)
@@ -123,5 +123,4 @@ while True:
         sinf.yomon_baho(student_number)
     elif choice == '5':   
         sinf.display_name()
-
-
+        
